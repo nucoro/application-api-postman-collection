@@ -6,11 +6,6 @@ Refer to our API documentation in our [Developer Portal](https://developer.nucor
 ## Requirements
 The collection requires an existing installation of [Postman](https://www.getpostman.com/), which is available for free.
 
-## Installing (Via Postman Button)
-1) Click on the "Run in Postman" button below to immediately import the collection and environment into your Postman app.
-
-Application API
-
 ## Installing (Via Github Download)
 1) Download collection.json and environment.json onto your local machine
 2) Open Postman, click on Import and select the two json files.
