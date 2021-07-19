@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "88220c49-53bd-4dd7-a4af-44404aacdcff",
+		"_postman_id": "8bdae89a-bbfe-4554-aa19-46e07920700a",
 		"name": "Nucoro Application API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -463,7 +463,7 @@
 								}
 							],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				},
@@ -584,7 +584,7 @@
 								}
 							],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				}
@@ -2110,7 +2110,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						},
@@ -2957,7 +2957,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						},
@@ -3550,10 +3550,10 @@
 											]
 										}
 									},
-									"_postman_previewlanguage": null,
-									"header": null,
+									"_postman_previewlanguage": "Text",
+									"header": [],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -3932,7 +3932,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -5017,7 +5017,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -6075,7 +6075,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -7057,7 +7057,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -7948,7 +7948,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						},
@@ -11750,7 +11750,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								},
 								{
 									"name": "Not found",
@@ -11846,7 +11846,9 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"url": null
+								"url": {
+									"raw": ""
+								}
 							},
 							"response": []
 						}
@@ -12766,6 +12768,47 @@
 					]
 				},
 				{
+					"name": "CLIENT TWRR",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/performance/twrr/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"clients",
+								"{{client_uuid}}",
+								"performance",
+								"twrr",
+								""
+							],
+							"query": [
+								{
+									"key": "expand",
+									"value": "tax_information",
+									"disabled": true
+								},
+								{
+									"key": "expand",
+									"value": "portfolios",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "CLIENT national documents",
 					"request": {
 						"method": "GET",
@@ -12892,7 +12935,7 @@
 								}
 							],
 							"cookie": [],
-							"body": null
+							"body": ""
 						},
 						{
 							"name": "ko, already verified",
@@ -14508,7 +14551,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -14979,7 +15022,7 @@
 										}
 									],
 									"cookie": [],
-									"body": null
+									"body": ""
 								}
 							]
 						}
@@ -16990,10 +17033,10 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": ""
 						},
 						{
 							"name": "ok response",
@@ -17569,7 +17612,7 @@
 								}
 							],
 							"cookie": [],
-							"body": null
+							"body": ""
 						}
 					]
 				}
