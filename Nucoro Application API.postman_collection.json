@@ -11861,7 +11861,7 @@
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
 									"postman.setEnvironmentVariable(\"auth_token\", jsonData.access);",
-									"postman.setEnvironmentVariable(\"username\", jsonData.user.email);",
+									"postman.setEnvironmentVariable(\"username\", jsonData.email);",
 									"postman.setEnvironmentVariable(\"client_uuid\", jsonData.uuid);"
 								],
 								"type": "text/javascript"
