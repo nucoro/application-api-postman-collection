@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8bdae89a-bbfe-4554-aa19-46e07920700a",
+		"_postman_id": "11c022e1-4109-43c6-be5b-2ad06bf69dd0",
 		"name": "Nucoro Application API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1124,6 +1124,91 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"8a8d76f0-d300-4880-bea9-9b9a5d30d73d\",\n            \"name\": \"MFM-R3 - Adagio 100\",\n            \"cash_weight\": 0.03,\n            \"risk_level\": 3,\n            \"allocation\": [\n                {\n                    \"asset\": \"ac3f996a-b2fc-4f0b-bbb0-729ab5dd39c1\",\n                    \"weight\": 1\n                }\n            ]\n        }\n    ]\n}"
+						},
+						{
+							"name": "ok, filter by extra_data",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/advice-engines/model-portfolio/model-portfolios/?extra_data__category=test",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"advice-engines",
+										"model-portfolio",
+										"model-portfolios",
+										""
+									],
+									"query": [
+										{
+											"key": "extra_data__category",
+											"value": "test"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jul 2021 08:48:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=312.225999999999;desc=\"User CPU time\", TimerPanel_stime;dur=172.00599999999966;desc=\"System CPU time\", TimerPanel_total;dur=484.2319999999986;desc=\"Total CPU time\", TimerPanel_total_time;dur=392.78125762939453;desc=\"Elapsed time\", SQLPanel_sql_time;dur=8.729934692382812;desc=\"SQL 9 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "587"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 3,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"e9368739-119f-4261-aa5a-3560dafeae52\",\n            \"name\": \"MFM-R1 - Cash 100\",\n            \"cash_weight\": 1,\n            \"risk_level\": 1,\n            \"allocation\": [],\n            \"extra_data\": {\n                \"category\": \"test\"\n            }\n        },\n        {\n            \"uuid\": \"c1dd9f73-fda8-4041-b798-1fc28633fcfe\",\n            \"name\": \"MFM-R2 - Cash 100\",\n            \"cash_weight\": 1,\n            \"risk_level\": 2,\n            \"allocation\": [],\n            \"extra_data\": {\n                \"category\": \"test\"\n            }\n        },\n        {\n            \"uuid\": \"8a8d76f0-d300-4880-bea9-9b9a5d30d73d\",\n            \"name\": \"MFM-R3 - Adagio 100\",\n            \"cash_weight\": 0.03,\n            \"risk_level\": 3,\n            \"allocation\": [\n                {\n                    \"asset\": \"90d336b7-d78e-4713-9916-5fbbac2763a8\",\n                    \"weight\": 0.97\n                }\n            ],\n            \"extra_data\": {\n                \"category\": \"test\"\n            }\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -12806,7 +12891,392 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/performance/twrr/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"clients",
+										"{{client_uuid}}",
+										"performance",
+										"twrr",
+										""
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "tax_information",
+											"disabled": true
+										},
+										{
+											"key": "expand",
+											"value": "portfolios",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jul 2021 09:20:46 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=201.22800000001462;desc=\"User CPU time\", TimerPanel_stime;dur=44.60400000002096;desc=\"System CPU time\", TimerPanel_total;dur=245.83200000003558;desc=\"Total CPU time\", TimerPanel_total_time;dur=358.81614685058594;desc=\"Elapsed time\", SQLPanel_sql_time;dur=14.919757843017578;desc=\"SQL 6 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1648"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 29,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"valuation_date\": \"2021-06-10\",\n            \"performance\": 0\n        },\n        {\n            \"valuation_date\": \"2021-06-11\",\n            \"performance\": 0.569745\n        },\n        {\n            \"valuation_date\": \"2021-06-14\",\n            \"performance\": 0.403845\n        },\n        {\n            \"valuation_date\": \"2021-06-15\",\n            \"performance\": 0.951759\n        },\n        {\n            \"valuation_date\": \"2021-06-16\",\n            \"performance\": 0.695949\n        },\n        {\n            \"valuation_date\": \"2021-06-17\",\n            \"performance\": 1.132866\n        },\n        {\n            \"valuation_date\": \"2021-06-18\",\n            \"performance\": 0.426978\n        },\n        {\n            \"valuation_date\": \"2021-06-21\",\n            \"performance\": 1.228501\n        },\n        {\n            \"valuation_date\": \"2021-06-22\",\n            \"performance\": 1.24435\n        },\n        {\n            \"valuation_date\": \"2021-06-23\",\n            \"performance\": 0.800353\n        },\n        {\n            \"valuation_date\": \"2021-06-24\",\n            \"performance\": -0.384147\n        },\n        {\n            \"valuation_date\": \"2021-06-25\",\n            \"performance\": 0.359085\n        },\n        {\n            \"valuation_date\": \"2021-06-28\",\n            \"performance\": -0.068514\n        },\n        {\n            \"valuation_date\": \"2021-06-29\",\n            \"performance\": 0.398257\n        },\n        {\n            \"valuation_date\": \"2021-06-30\",\n            \"performance\": 0.209418\n        },\n        {\n            \"valuation_date\": \"2021-07-01\",\n            \"performance\": 0.318587\n        },\n        {\n            \"valuation_date\": \"2021-07-02\",\n            \"performance\": 0.590607\n        },\n        {\n            \"valuation_date\": \"2021-07-05\",\n            \"performance\": 1.025908\n        },\n        {\n            \"valuation_date\": \"2021-07-06\",\n            \"performance\": 1.389314\n        },\n        {\n            \"valuation_date\": \"2021-07-07\",\n            \"performance\": 0.777641\n        },\n        {\n            \"valuation_date\": \"2021-07-08\",\n            \"performance\": 1.040253\n        },\n        {\n            \"valuation_date\": \"2021-07-09\",\n            \"performance\": -0.968089\n        },\n        {\n            \"valuation_date\": \"2021-07-12\",\n            \"performance\": -0.77758\n        },\n        {\n            \"valuation_date\": \"2021-07-13\",\n            \"performance\": -0.844787\n        },\n        {\n            \"valuation_date\": \"2021-07-14\",\n            \"performance\": -1.704785\n        },\n        {\n            \"valuation_date\": \"2021-07-15\",\n            \"performance\": -1.951507\n        },\n        {\n            \"valuation_date\": \"2021-07-16\",\n            \"performance\": -0.96198\n        },\n        {\n            \"valuation_date\": \"2021-07-19\",\n            \"performance\": -1.022595\n        },\n        {\n            \"valuation_date\": \"2021-07-20\",\n            \"performance\": -0.39433\n        }\n    ]\n}"
+						},
+						{
+							"name": "ok, date descending",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/performance/twrr/?ordering=-valuation_date",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"clients",
+										"{{client_uuid}}",
+										"performance",
+										"twrr",
+										""
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "tax_information",
+											"disabled": true
+										},
+										{
+											"key": "expand",
+											"value": "portfolios",
+											"disabled": true
+										},
+										{
+											"key": "ordering",
+											"value": "-valuation_date"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jul 2021 09:21:09 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=285.21299999999883;desc=\"User CPU time\", TimerPanel_stime;dur=74.36099999998191;desc=\"System CPU time\", TimerPanel_total;dur=359.57399999998074;desc=\"Total CPU time\", TimerPanel_total_time;dur=416.96691513061523;desc=\"Elapsed time\", SQLPanel_sql_time;dur=15.95616340637207;desc=\"SQL 6 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1648"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 29,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"valuation_date\": \"2021-07-20\",\n            \"performance\": -0.39433\n        },\n        {\n            \"valuation_date\": \"2021-07-19\",\n            \"performance\": -1.022595\n        },\n        {\n            \"valuation_date\": \"2021-07-16\",\n            \"performance\": -0.96198\n        },\n        {\n            \"valuation_date\": \"2021-07-15\",\n            \"performance\": -1.951507\n        },\n        {\n            \"valuation_date\": \"2021-07-14\",\n            \"performance\": -1.704785\n        },\n        {\n            \"valuation_date\": \"2021-07-13\",\n            \"performance\": -0.844787\n        },\n        {\n            \"valuation_date\": \"2021-07-12\",\n            \"performance\": -0.77758\n        },\n        {\n            \"valuation_date\": \"2021-07-09\",\n            \"performance\": -0.968089\n        },\n        {\n            \"valuation_date\": \"2021-07-08\",\n            \"performance\": 1.040253\n        },\n        {\n            \"valuation_date\": \"2021-07-07\",\n            \"performance\": 0.777641\n        },\n        {\n            \"valuation_date\": \"2021-07-06\",\n            \"performance\": 1.389314\n        },\n        {\n            \"valuation_date\": \"2021-07-05\",\n            \"performance\": 1.025908\n        },\n        {\n            \"valuation_date\": \"2021-07-02\",\n            \"performance\": 0.590607\n        },\n        {\n            \"valuation_date\": \"2021-07-01\",\n            \"performance\": 0.318587\n        },\n        {\n            \"valuation_date\": \"2021-06-30\",\n            \"performance\": 0.209418\n        },\n        {\n            \"valuation_date\": \"2021-06-29\",\n            \"performance\": 0.398257\n        },\n        {\n            \"valuation_date\": \"2021-06-28\",\n            \"performance\": -0.068514\n        },\n        {\n            \"valuation_date\": \"2021-06-25\",\n            \"performance\": 0.359085\n        },\n        {\n            \"valuation_date\": \"2021-06-24\",\n            \"performance\": -0.384147\n        },\n        {\n            \"valuation_date\": \"2021-06-23\",\n            \"performance\": 0.800353\n        },\n        {\n            \"valuation_date\": \"2021-06-22\",\n            \"performance\": 1.24435\n        },\n        {\n            \"valuation_date\": \"2021-06-21\",\n            \"performance\": 1.228501\n        },\n        {\n            \"valuation_date\": \"2021-06-18\",\n            \"performance\": 0.426978\n        },\n        {\n            \"valuation_date\": \"2021-06-17\",\n            \"performance\": 1.132866\n        },\n        {\n            \"valuation_date\": \"2021-06-16\",\n            \"performance\": 0.695949\n        },\n        {\n            \"valuation_date\": \"2021-06-15\",\n            \"performance\": 0.951759\n        },\n        {\n            \"valuation_date\": \"2021-06-14\",\n            \"performance\": 0.403845\n        },\n        {\n            \"valuation_date\": \"2021-06-11\",\n            \"performance\": 0.569745\n        },\n        {\n            \"valuation_date\": \"2021-06-10\",\n            \"performance\": 0\n        }\n    ]\n}"
+						},
+						{
+							"name": "ok, filter by dates",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/performance/twrr/?date_before=2021-06-01&date_after=2021-06-30",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"clients",
+										"{{client_uuid}}",
+										"performance",
+										"twrr",
+										""
+									],
+									"query": [
+										{
+											"key": "date_before",
+											"value": "2021-06-01"
+										},
+										{
+											"key": "date_after",
+											"value": "2021-06-30"
+										},
+										{
+											"key": "expand",
+											"value": "tax_information",
+											"disabled": true
+										},
+										{
+											"key": "expand",
+											"value": "portfolios",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jul 2021 09:21:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=271.2580000000173;desc=\"User CPU time\", TimerPanel_stime;dur=117.05499999999347;desc=\"System CPU time\", TimerPanel_total;dur=388.3130000000108;desc=\"Total CPU time\", TimerPanel_total_time;dur=416.1081314086914;desc=\"Elapsed time\", SQLPanel_sql_time;dur=16.848087310791016;desc=\"SQL 6 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "873"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 15,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"valuation_date\": \"2021-06-10\",\n            \"performance\": 0\n        },\n        {\n            \"valuation_date\": \"2021-06-11\",\n            \"performance\": 0.569745\n        },\n        {\n            \"valuation_date\": \"2021-06-14\",\n            \"performance\": 0.403845\n        },\n        {\n            \"valuation_date\": \"2021-06-15\",\n            \"performance\": 0.951759\n        },\n        {\n            \"valuation_date\": \"2021-06-16\",\n            \"performance\": 0.695949\n        },\n        {\n            \"valuation_date\": \"2021-06-17\",\n            \"performance\": 1.132866\n        },\n        {\n            \"valuation_date\": \"2021-06-18\",\n            \"performance\": 0.426978\n        },\n        {\n            \"valuation_date\": \"2021-06-21\",\n            \"performance\": 1.228501\n        },\n        {\n            \"valuation_date\": \"2021-06-22\",\n            \"performance\": 1.24435\n        },\n        {\n            \"valuation_date\": \"2021-06-23\",\n            \"performance\": 0.800353\n        },\n        {\n            \"valuation_date\": \"2021-06-24\",\n            \"performance\": -0.384147\n        },\n        {\n            \"valuation_date\": \"2021-06-25\",\n            \"performance\": 0.359085\n        },\n        {\n            \"valuation_date\": \"2021-06-28\",\n            \"performance\": -0.068514\n        },\n        {\n            \"valuation_date\": \"2021-06-29\",\n            \"performance\": 0.398257\n        },\n        {\n            \"valuation_date\": \"2021-06-30\",\n            \"performance\": 0.209418\n        }\n    ]\n}"
+						},
+						{
+							"name": "ko, invalid date",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/performance/twrr/?date_before=2021-06-01&date_after=BAD",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"clients",
+										"{{client_uuid}}",
+										"performance",
+										"twrr",
+										""
+									],
+									"query": [
+										{
+											"key": "expand",
+											"value": "tax_information",
+											"disabled": true
+										},
+										{
+											"key": "expand",
+											"value": "portfolios",
+											"disabled": true
+										},
+										{
+											"key": "date_before",
+											"value": "2021-06-01"
+										},
+										{
+											"key": "date_after",
+											"value": "BAD"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 21 Jul 2021 09:22:01 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=110.60400000002346;desc=\"User CPU time\", TimerPanel_stime;dur=24.985999999984188;desc=\"System CPU time\", TimerPanel_total;dur=135.59000000000765;desc=\"Total CPU time\", TimerPanel_total_time;dur=194.65875625610352;desc=\"Elapsed time\", SQLPanel_sql_time;dur=6.433010101318359;desc=\"SQL 3 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"INVALID_AFTER_DATE\",\n    \"message\": \"Invalid filter: invalid after date\"\n}"
+						}
+					]
 				},
 				{
 					"name": "CLIENT national documents",
