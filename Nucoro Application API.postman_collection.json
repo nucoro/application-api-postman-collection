@@ -1825,6 +1825,379 @@
 			]
 		},
 		{
+			"name": "CHARGES",
+			"item": [
+				{
+					"name": "CHARGES list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/billing/charges/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"billing",
+								"charges",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/billing/charges/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"billing",
+										"charges",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jan 2022 08:45:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4305"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en-gb"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"c8223fea-2e49-494c-a06f-021fd739aeb0\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-02T08:01:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"efb4025e-f3eb-46fc-8d4f-31cd617bd56f\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 1.23,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-01T00:00:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"a0d80f4b-e882-4d3a-bd38-e0aa4aa86033\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 6.76,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-04T00:00:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"c84a6263-572a-4b31-848e-d4fef9e7a5e6\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-05T08:01:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "ok, filter by portfolio",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/billing/charges/?portfolio=508ec859-9f66-4f75-b3a8-9e8b3039160f",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"billing",
+										"charges",
+										""
+									],
+									"query": [
+										{
+											"key": "portfolio",
+											"value": "508ec859-9f66-4f75-b3a8-9e8b3039160f"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jan 2022 08:58:05 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4305"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en-gb"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"c8223fea-2e49-494c-a06f-021fd739aeb0\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-02T08:01:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"efb4025e-f3eb-46fc-8d4f-31cd617bd56f\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 1.23,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-01T00:00:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"a0d80f4b-e882-4d3a-bd38-e0aa4aa86033\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 6.76,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-04T00:00:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"c84a6263-572a-4b31-848e-d4fef9e7a5e6\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-05T08:01:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "ok, filter by charged_after",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/billing/charges/?charged_after=2021-12-31",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"billing",
+										"charges",
+										""
+									],
+									"query": [
+										{
+											"key": "charged_after",
+											"value": "2021-12-31"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jan 2022 08:58:23 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2170"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en-gb"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"a0d80f4b-e882-4d3a-bd38-e0aa4aa86033\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 6.76,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-04T00:00:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"c84a6263-572a-4b31-848e-d4fef9e7a5e6\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-05T08:01:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "CHARGES retrieve",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/billing/charges/{{charge_uuid}}/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"billing",
+								"charges",
+								"{{charge_uuid}}",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/billing/charges/{{charge_uuid}}/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"billing",
+										"charges",
+										"{{charge_uuid}}",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jan 2022 08:47:37 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.12"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1211"
+								},
+								{
+									"key": "Content-Language",
+									"value": "en-gb"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"uuid\": \"c8223fea-2e49-494c-a06f-021fd739aeb0\",\n    \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n    \"status\": \"CHARGED\",\n    \"amount\": 0,\n    \"balance\": 1999.7264738666668,\n    \"extra_data\": {\n        \"fee\": {\n            \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n            \"model\": \"InvestorFee\",\n            \"value\": \"3.760000\",\n            \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n            \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n            \"date_to\": \"None\",\n            \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n            \"fee_type\": \"seller_fee\",\n            \"amount_to\": \"4.000000\",\n            \"client_id\": \"6\",\n            \"date_from\": \"None\",\n            \"deleted_at\": \"None\",\n            \"extra_data\": \"{}\",\n            \"value_unit\": \"percentage\",\n            \"amount_from\": \"3.000000\",\n            \"minimum_fixed_value\": \"None\"\n        },\n        \"balance\": \"1999.72647386666676538879983127117156982421875\",\n        \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n        \"allocation_date\": \"2021-11-30\",\n        \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n    },\n    \"external_id\": null,\n    \"charged\": \"2021-12-02T08:01:00.000000Z\",\n    \"created\": \"2021-12-02T08:01:00.000000Z\",\n    \"updated\": \"2021-12-02T08:01:00.000000Z\",\n    \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
 			"name": "CLIENT",
 			"item": [
 				{
@@ -3389,6 +3762,391 @@
 									],
 									"cookie": [],
 									"body": "{\n    \"uuid\": \"70f3e62d-37b2-4aa4-9935-bb03f919aaaa\",\n    \"account_number\": \"lets change the account number\",\n    \"account_sort_code\": \"abcdef\",\n    \"account_holder_name\": \"Account holder name of second bank account of user 1\",\n    \"joint\": false,\n    \"bank_name\": null,\n    \"iban\": null,\n    \"swift_code\": null\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "CHARGE",
+					"item": [
+						{
+							"name": "CHARGE list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/billing/charges/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"clients",
+										"{{client_uuid}}",
+										"billing",
+										"charges",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "ok response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{auth_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/billing/charges/",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"v2",
+												"clients",
+												"{{client_uuid}}",
+												"billing",
+												"charges",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 10 Jan 2022 08:52:59 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.8.12"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin, Accept-Language, Cookie"
+										},
+										{
+											"key": "Allow",
+											"value": "GET"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "4305"
+										},
+										{
+											"key": "Content-Language",
+											"value": "en-gb"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"c8223fea-2e49-494c-a06f-021fd739aeb0\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-02T08:01:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"efb4025e-f3eb-46fc-8d4f-31cd617bd56f\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 1.23,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-01T00:00:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"a0d80f4b-e882-4d3a-bd38-e0aa4aa86033\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 6.76,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-04T00:00:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"c84a6263-572a-4b31-848e-d4fef9e7a5e6\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-05T08:01:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "ok, by portfolio",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{auth_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/billing/charges/?portfolio={{portfolio_uuid}}",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"v2",
+												"clients",
+												"{{client_uuid}}",
+												"billing",
+												"charges",
+												""
+											],
+											"query": [
+												{
+													"key": "portfolio",
+													"value": "{{portfolio_uuid}}"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 10 Jan 2022 08:55:37 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.8.12"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin, Accept-Language, Cookie"
+										},
+										{
+											"key": "Allow",
+											"value": "GET"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "4305"
+										},
+										{
+											"key": "Content-Language",
+											"value": "en-gb"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"count\": 4,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"c8223fea-2e49-494c-a06f-021fd739aeb0\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-02T08:01:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"efb4025e-f3eb-46fc-8d4f-31cd617bd56f\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 1.23,\n            \"balance\": 1999.7264738666668,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"1999.72647386666676538879983127117156982421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-11-30\",\n                \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2021-12-01T00:00:00.000000Z\",\n            \"created\": \"2021-12-02T08:01:00.000000Z\",\n            \"updated\": \"2021-12-02T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"a0d80f4b-e882-4d3a-bd38-e0aa4aa86033\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 6.76,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-04T00:00:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"c84a6263-572a-4b31-848e-d4fef9e7a5e6\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-05T08:01:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "ok, charged after filter",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{auth_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/billing/charges/?charged_after=2021-12-31",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"v2",
+												"clients",
+												"{{client_uuid}}",
+												"billing",
+												"charges",
+												""
+											],
+											"query": [
+												{
+													"key": "charged_after",
+													"value": "2021-12-31"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 10 Jan 2022 08:56:34 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.8.12"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin, Accept-Language, Cookie"
+										},
+										{
+											"key": "Allow",
+											"value": "GET"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "2170"
+										},
+										{
+											"key": "Content-Language",
+											"value": "en-gb"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"count\": 2,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"uuid\": \"a0d80f4b-e882-4d3a-bd38-e0aa4aa86033\",\n            \"description\": \"Service fee 0.75%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 6.76,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"None\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"0.750000\",\n                    \"concept\": \"Service fee\",\n                    \"created\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2017-05-16 13:18:39.660000+00:00\",\n                    \"fee_type\": \"portal_service\",\n                    \"amount_to\": \"100000.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"0.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"Service fee\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-04T00:00:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        },\n        {\n            \"uuid\": \"c84a6263-572a-4b31-848e-d4fef9e7a5e6\",\n            \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n            \"status\": \"CHARGED\",\n            \"amount\": 0,\n            \"balance\": 10613.598446,\n            \"extra_data\": {\n                \"fee\": {\n                    \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n                    \"model\": \"InvestorFee\",\n                    \"value\": \"3.760000\",\n                    \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                    \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n                    \"date_to\": \"None\",\n                    \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n                    \"fee_type\": \"seller_fee\",\n                    \"amount_to\": \"4.000000\",\n                    \"client_id\": \"6\",\n                    \"date_from\": \"None\",\n                    \"deleted_at\": \"None\",\n                    \"extra_data\": \"{}\",\n                    \"value_unit\": \"percentage\",\n                    \"amount_from\": \"3.000000\",\n                    \"minimum_fixed_value\": \"None\"\n                },\n                \"balance\": \"10613.59844599999996717087924480438232421875\",\n                \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n                \"allocation_date\": \"2021-12-31\",\n                \"allocation_uuid\": \"ea15cd18-b0ac-42c3-b880-b2c33c5bbae8\"\n            },\n            \"external_id\": null,\n            \"charged\": \"2022-01-05T08:01:00.000000Z\",\n            \"created\": \"2022-01-05T08:01:00.000000Z\",\n            \"updated\": \"2022-01-05T08:01:00.000000Z\",\n            \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "CHARGE retrieve",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{auth_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/billing/charges/{{charge_uuid}}/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"clients",
+										"{{client_uuid}}",
+										"billing",
+										"charges",
+										"{{charge_uuid}}",
+										""
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "ok response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{auth_token}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{host}}:{{port}}/api/v2/clients/{{client_uuid}}/billing/charges/{{charge_uuid}}/",
+											"host": [
+												"{{host}}"
+											],
+											"port": "{{port}}",
+											"path": [
+												"api",
+												"v2",
+												"clients",
+												"{{client_uuid}}",
+												"billing",
+												"charges",
+												"{{charge_uuid}}",
+												""
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 10 Jan 2022 08:53:39 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "WSGIServer/0.2 CPython/3.8.12"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept, Origin, Accept-Language, Cookie"
+										},
+										{
+											"key": "Allow",
+											"value": "GET"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "DENY"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1211"
+										},
+										{
+											"key": "Content-Language",
+											"value": "en-gb"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "same-origin"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"uuid\": \"c8223fea-2e49-494c-a06f-021fd739aeb0\",\n    \"description\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps 3.76%\",\n    \"status\": \"CHARGED\",\n    \"amount\": 0,\n    \"balance\": 1999.7264738666668,\n    \"extra_data\": {\n        \"fee\": {\n            \"uuid\": \"4a932ea8-189f-4812-865b-3c4f6d7f8222\",\n            \"model\": \"InvestorFee\",\n            \"value\": \"3.760000\",\n            \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n            \"created\": \"2022-01-10 08:04:35.474564+00:00\",\n            \"date_to\": \"None\",\n            \"updated\": \"2022-01-10 08:04:35.474579+00:00\",\n            \"fee_type\": \"seller_fee\",\n            \"amount_to\": \"4.000000\",\n            \"client_id\": \"6\",\n            \"date_from\": \"None\",\n            \"deleted_at\": \"None\",\n            \"extra_data\": \"{}\",\n            \"value_unit\": \"percentage\",\n            \"amount_from\": \"3.000000\",\n            \"minimum_fixed_value\": \"None\"\n        },\n        \"balance\": \"1999.72647386666676538879983127117156982421875\",\n        \"concept\": \"paVHcgnkeBBpqCsAUSIJdoUDeCXgTFRTlufofXIKCfPDriLiyZOImRczsAOfrzftFxLeRjPIYmtkLKcwMcHTeTaFqvkMxNHedQps\",\n        \"allocation_date\": \"2021-11-30\",\n        \"allocation_uuid\": \"4a5c555c-66cd-4fd9-a5c1-0d1b4727dd21\"\n    },\n    \"external_id\": null,\n    \"charged\": \"2021-12-02T08:01:00.000000Z\",\n    \"created\": \"2021-12-02T08:01:00.000000Z\",\n    \"updated\": \"2021-12-02T08:01:00.000000Z\",\n    \"portfolio\": \"508ec859-9f66-4f75-b3a8-9e8b3039160f\"\n}"
 								}
 							]
 						}
