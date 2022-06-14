@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "150fdf53-6bc8-45f5-96e5-a317ed7a023e",
+		"_postman_id": "dab1c704-c68d-41d0-8e44-d99e2828c044",
 		"name": "Nucoro Application API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -16,7 +16,11 @@
 							"script": {
 								"exec": [
 									"var jsonData = JSON.parse(responseBody);",
-									"postman.setEnvironmentVariable(\"auth_token\", jsonData.access);"
+									"// MFA disabled",
+									"postman.setEnvironmentVariable(\"auth_token\", jsonData.access);",
+									"// MFA enabled",
+									"postman.setEnvironmentVariable(\"ephemeral_token\", jsonData.ephemeral_token);",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -48,6 +52,1343 @@
 								"v2",
 								"auth",
 								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=361.1939999999976;desc=\"User CPU time\", TimerPanel_stime;dur=60.725000000005025;desc=\"System CPU time\", TimerPanel_total;dur=421.9190000000026;desc=\"Total CPU time\", TimerPanel_total_time;dur=401.1189937591553;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.602100372314453;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"WRONG_USERNAME\",\n    \"message\": \"Identifiant ou mot de passe incorrect\"\n}"
+						},
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"Indiana1234\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, Origin, Accept-Language"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=320.5829999999992;desc=\"User CPU time\", TimerPanel_stime;dur=92.92700000000309;desc=\"System CPU time\", TimerPanel_total;dur=413.51000000000226;desc=\"Total CPU time\", TimerPanel_total_time;dur=365.4468059539795;desc=\"Elapsed time\", SQLPanel_sql_time;dur=7.857561111450195;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4504"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=U2JhcoYGlxkwXk7PHbt2xoQL5KJIJ3sgamSnbR3loxwL5buWCcdS254iqtyzBH4T; expires=Wed, 01 Jun 2022 06:54:56 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=hw1keq2onwh1o7o35wqnd4t2j53prldj; expires=Wed, 16 Jun 2021 06:54:56 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjcwMzI5NiwianRpIjoiOGYwYjg3Y2UxNTJhNDBiODg4YTAxMmYxYTgxMmU4YzIiLCJ1c2VyX2lkIjo0LCJ1c2VyX3V1aWQiOiIyODUyMGRhNC04YzkyLTRiYjQtODM1YS1jOWQ0M2NlNWE0OTQiLCJpYXQiOjIxMCwic3ViIjoiSldUIFRva2VuIiwic2NvcGVzIjpbInYyOmFjY291bnQ6YWRkcmVzczpyZWFkIiwidjI6YWNjb3VudDphZGRyZXNzOmNyZWF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczp1cGRhdGUiLCJ2MjphY2NvdW50OmFkZHJlc3M6ZGVsZXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6cmVhZCIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmNyZWF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OnVwZGF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmRlbGV0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnJlYWQiLCJ2MjphY2NvdW50OmNsaWVudDpjcmVhdGUiLCJ2MjphY2NvdW50OmNsaWVudDp1cGRhdGUiLCJ2MjphY2NvdW50OkRvY3VtZW50OnJlYWQiLCJ2MjphY2NvdW50OkRvY3VtZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpyZWFkIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpjcmVhdGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnVwZGF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6ZGVsZXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246cmVhZCIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmNyZWF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOnVwZGF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmRlbGV0ZSIsInYyOmNsaWVudDpyaXNrOmFzc2Vzc21lbnQ6cmVhZCIsInYyOmNsaWVudDpreWM6dmVyaWZpY2F0aW9uOnJlYWQiLCJ2MjpjbGllbnQ6YmlsbGluZzppbnZvaWNlOnJlYWQiLCJ2MjphY2NvdW50OmFjdGl2aXR5OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpyZWFkIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6Y3JlYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6dXBkYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOnJlYmFsYW5jZTpyZWFkIiwidjI6YnJva2VyOm9yZGVyOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6Y3JlYXRlIiwidjI6YnJva2VyOm9yZGVyOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzphY3Rpdml0aWVzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86YWxsb2NhdGlvbnM6cmVhZCIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cGVyZm9ybWFuY2U6cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86Y3JlYXRlIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzp1cGRhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpyZWFkIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpkZWxldGUiXX0.-fsIV53MkDNAnkoc0FlwwRiDBe1IIy0DCqVRQR3GeuE\",\n    \"access\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI1NjE2ODk2LCJqdGkiOiI1MmI4MzExNWQ0ZDU0YTJhYTRhNGE4NzhlYTk4YTFlZiIsInVzZXJfaWQiOjQsInVzZXJfdXVpZCI6IjI4NTIwZGE0LThjOTItNGJiNC04MzVhLWM5ZDQzY2U1YTQ5NCIsImlhdCI6MjEwLCJzdWIiOiJKV1QgVG9rZW4iLCJzY29wZXMiOlsidjI6YWNjb3VudDphZGRyZXNzOnJlYWQiLCJ2MjphY2NvdW50OmFkZHJlc3M6Y3JlYXRlIiwidjI6YWNjb3VudDphZGRyZXNzOnVwZGF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczpkZWxldGUiLCJ2MjphY2NvdW50OmJhbmstYWNjb3VudDpyZWFkIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6dXBkYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpjbGllbnQ6cmVhZCIsInYyOmFjY291bnQ6Y2xpZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnVwZGF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6cmVhZCIsInYyOmFjY291bnQ6RG9jdW1lbnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpEb2N1bWVudDpkZWxldGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnJlYWQiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OmNyZWF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6dXBkYXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpkZWxldGUiLCJ2MjphY2NvdW50OnRheC1pbmZvcm1hdGlvbjpyZWFkIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246Y3JlYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246dXBkYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246ZGVsZXRlIiwidjI6Y2xpZW50OnJpc2s6YXNzZXNzbWVudDpyZWFkIiwidjI6Y2xpZW50Omt5Yzp2ZXJpZmljYXRpb246cmVhZCIsInYyOmNsaWVudDpiaWxsaW5nOmludm9pY2U6cmVhZCIsInYyOmFjY291bnQ6YWN0aXZpdHk6cmVhZCIsInYyOmFjY291bnQ6d2F0Y2hsaXN0OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpjcmVhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDp1cGRhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cmViYWxhbmNlOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6cmVhZCIsInYyOmJyb2tlcjpvcmRlcjpjcmVhdGUiLCJ2Mjpicm9rZXI6b3JkZXI6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOmFjdGl2aXRpZXM6cmVhZCIsInYyOnBvcnRmb2xpbzphbGxvY2F0aW9uczpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86ZGVwb3NpdHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzpwZXJmb3JtYW5jZTpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpjcmVhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOnVwZGF0ZSIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86ZGVsZXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86d2l0aGRyYXdhbHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmRlbGV0ZSJdfQ.qyAJyFgNU9u8T2-YyTsibYSd-FmJcbs79w2C09-Fe1w\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTH MFA login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"auth_token\", jsonData.access);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ephemeral_token\": \"{{ephemeral_token}}\",\n  \"code\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/auth/mfa/login/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"auth",
+								"mfa",
+								"login",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=361.1939999999976;desc=\"User CPU time\", TimerPanel_stime;dur=60.725000000005025;desc=\"System CPU time\", TimerPanel_total;dur=421.9190000000026;desc=\"Total CPU time\", TimerPanel_total_time;dur=401.1189937591553;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.602100372314453;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"WRONG_USERNAME\",\n    \"message\": \"Identifiant ou mot de passe incorrect\"\n}"
+						},
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"Indiana1234\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, Origin, Accept-Language"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=320.5829999999992;desc=\"User CPU time\", TimerPanel_stime;dur=92.92700000000309;desc=\"System CPU time\", TimerPanel_total;dur=413.51000000000226;desc=\"Total CPU time\", TimerPanel_total_time;dur=365.4468059539795;desc=\"Elapsed time\", SQLPanel_sql_time;dur=7.857561111450195;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4504"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=U2JhcoYGlxkwXk7PHbt2xoQL5KJIJ3sgamSnbR3loxwL5buWCcdS254iqtyzBH4T; expires=Wed, 01 Jun 2022 06:54:56 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=hw1keq2onwh1o7o35wqnd4t2j53prldj; expires=Wed, 16 Jun 2021 06:54:56 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjcwMzI5NiwianRpIjoiOGYwYjg3Y2UxNTJhNDBiODg4YTAxMmYxYTgxMmU4YzIiLCJ1c2VyX2lkIjo0LCJ1c2VyX3V1aWQiOiIyODUyMGRhNC04YzkyLTRiYjQtODM1YS1jOWQ0M2NlNWE0OTQiLCJpYXQiOjIxMCwic3ViIjoiSldUIFRva2VuIiwic2NvcGVzIjpbInYyOmFjY291bnQ6YWRkcmVzczpyZWFkIiwidjI6YWNjb3VudDphZGRyZXNzOmNyZWF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczp1cGRhdGUiLCJ2MjphY2NvdW50OmFkZHJlc3M6ZGVsZXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6cmVhZCIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmNyZWF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OnVwZGF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmRlbGV0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnJlYWQiLCJ2MjphY2NvdW50OmNsaWVudDpjcmVhdGUiLCJ2MjphY2NvdW50OmNsaWVudDp1cGRhdGUiLCJ2MjphY2NvdW50OkRvY3VtZW50OnJlYWQiLCJ2MjphY2NvdW50OkRvY3VtZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpyZWFkIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpjcmVhdGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnVwZGF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6ZGVsZXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246cmVhZCIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmNyZWF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOnVwZGF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmRlbGV0ZSIsInYyOmNsaWVudDpyaXNrOmFzc2Vzc21lbnQ6cmVhZCIsInYyOmNsaWVudDpreWM6dmVyaWZpY2F0aW9uOnJlYWQiLCJ2MjpjbGllbnQ6YmlsbGluZzppbnZvaWNlOnJlYWQiLCJ2MjphY2NvdW50OmFjdGl2aXR5OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpyZWFkIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6Y3JlYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6dXBkYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOnJlYmFsYW5jZTpyZWFkIiwidjI6YnJva2VyOm9yZGVyOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6Y3JlYXRlIiwidjI6YnJva2VyOm9yZGVyOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzphY3Rpdml0aWVzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86YWxsb2NhdGlvbnM6cmVhZCIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cGVyZm9ybWFuY2U6cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86Y3JlYXRlIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzp1cGRhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpyZWFkIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpkZWxldGUiXX0.-fsIV53MkDNAnkoc0FlwwRiDBe1IIy0DCqVRQR3GeuE\",\n    \"access\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI1NjE2ODk2LCJqdGkiOiI1MmI4MzExNWQ0ZDU0YTJhYTRhNGE4NzhlYTk4YTFlZiIsInVzZXJfaWQiOjQsInVzZXJfdXVpZCI6IjI4NTIwZGE0LThjOTItNGJiNC04MzVhLWM5ZDQzY2U1YTQ5NCIsImlhdCI6MjEwLCJzdWIiOiJKV1QgVG9rZW4iLCJzY29wZXMiOlsidjI6YWNjb3VudDphZGRyZXNzOnJlYWQiLCJ2MjphY2NvdW50OmFkZHJlc3M6Y3JlYXRlIiwidjI6YWNjb3VudDphZGRyZXNzOnVwZGF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczpkZWxldGUiLCJ2MjphY2NvdW50OmJhbmstYWNjb3VudDpyZWFkIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6dXBkYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpjbGllbnQ6cmVhZCIsInYyOmFjY291bnQ6Y2xpZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnVwZGF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6cmVhZCIsInYyOmFjY291bnQ6RG9jdW1lbnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpEb2N1bWVudDpkZWxldGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnJlYWQiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OmNyZWF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6dXBkYXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpkZWxldGUiLCJ2MjphY2NvdW50OnRheC1pbmZvcm1hdGlvbjpyZWFkIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246Y3JlYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246dXBkYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246ZGVsZXRlIiwidjI6Y2xpZW50OnJpc2s6YXNzZXNzbWVudDpyZWFkIiwidjI6Y2xpZW50Omt5Yzp2ZXJpZmljYXRpb246cmVhZCIsInYyOmNsaWVudDpiaWxsaW5nOmludm9pY2U6cmVhZCIsInYyOmFjY291bnQ6YWN0aXZpdHk6cmVhZCIsInYyOmFjY291bnQ6d2F0Y2hsaXN0OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpjcmVhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDp1cGRhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cmViYWxhbmNlOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6cmVhZCIsInYyOmJyb2tlcjpvcmRlcjpjcmVhdGUiLCJ2Mjpicm9rZXI6b3JkZXI6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOmFjdGl2aXRpZXM6cmVhZCIsInYyOnBvcnRmb2xpbzphbGxvY2F0aW9uczpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86ZGVwb3NpdHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzpwZXJmb3JtYW5jZTpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpjcmVhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOnVwZGF0ZSIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86ZGVsZXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86d2l0aGRyYXdhbHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmRlbGV0ZSJdfQ.qyAJyFgNU9u8T2-YyTsibYSd-FmJcbs79w2C09-Fe1w\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTH MFA method activation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/auth/mfa/{{mfa_method}}/activate/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"auth",
+								"mfa",
+								"{{mfa_method}}",
+								"activate",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=361.1939999999976;desc=\"User CPU time\", TimerPanel_stime;dur=60.725000000005025;desc=\"System CPU time\", TimerPanel_total;dur=421.9190000000026;desc=\"Total CPU time\", TimerPanel_total_time;dur=401.1189937591553;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.602100372314453;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"WRONG_USERNAME\",\n    \"message\": \"Identifiant ou mot de passe incorrect\"\n}"
+						},
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"Indiana1234\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, Origin, Accept-Language"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=320.5829999999992;desc=\"User CPU time\", TimerPanel_stime;dur=92.92700000000309;desc=\"System CPU time\", TimerPanel_total;dur=413.51000000000226;desc=\"Total CPU time\", TimerPanel_total_time;dur=365.4468059539795;desc=\"Elapsed time\", SQLPanel_sql_time;dur=7.857561111450195;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4504"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=U2JhcoYGlxkwXk7PHbt2xoQL5KJIJ3sgamSnbR3loxwL5buWCcdS254iqtyzBH4T; expires=Wed, 01 Jun 2022 06:54:56 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=hw1keq2onwh1o7o35wqnd4t2j53prldj; expires=Wed, 16 Jun 2021 06:54:56 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjcwMzI5NiwianRpIjoiOGYwYjg3Y2UxNTJhNDBiODg4YTAxMmYxYTgxMmU4YzIiLCJ1c2VyX2lkIjo0LCJ1c2VyX3V1aWQiOiIyODUyMGRhNC04YzkyLTRiYjQtODM1YS1jOWQ0M2NlNWE0OTQiLCJpYXQiOjIxMCwic3ViIjoiSldUIFRva2VuIiwic2NvcGVzIjpbInYyOmFjY291bnQ6YWRkcmVzczpyZWFkIiwidjI6YWNjb3VudDphZGRyZXNzOmNyZWF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczp1cGRhdGUiLCJ2MjphY2NvdW50OmFkZHJlc3M6ZGVsZXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6cmVhZCIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmNyZWF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OnVwZGF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmRlbGV0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnJlYWQiLCJ2MjphY2NvdW50OmNsaWVudDpjcmVhdGUiLCJ2MjphY2NvdW50OmNsaWVudDp1cGRhdGUiLCJ2MjphY2NvdW50OkRvY3VtZW50OnJlYWQiLCJ2MjphY2NvdW50OkRvY3VtZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpyZWFkIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpjcmVhdGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnVwZGF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6ZGVsZXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246cmVhZCIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmNyZWF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOnVwZGF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmRlbGV0ZSIsInYyOmNsaWVudDpyaXNrOmFzc2Vzc21lbnQ6cmVhZCIsInYyOmNsaWVudDpreWM6dmVyaWZpY2F0aW9uOnJlYWQiLCJ2MjpjbGllbnQ6YmlsbGluZzppbnZvaWNlOnJlYWQiLCJ2MjphY2NvdW50OmFjdGl2aXR5OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpyZWFkIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6Y3JlYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6dXBkYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOnJlYmFsYW5jZTpyZWFkIiwidjI6YnJva2VyOm9yZGVyOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6Y3JlYXRlIiwidjI6YnJva2VyOm9yZGVyOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzphY3Rpdml0aWVzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86YWxsb2NhdGlvbnM6cmVhZCIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cGVyZm9ybWFuY2U6cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86Y3JlYXRlIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzp1cGRhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpyZWFkIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpkZWxldGUiXX0.-fsIV53MkDNAnkoc0FlwwRiDBe1IIy0DCqVRQR3GeuE\",\n    \"access\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI1NjE2ODk2LCJqdGkiOiI1MmI4MzExNWQ0ZDU0YTJhYTRhNGE4NzhlYTk4YTFlZiIsInVzZXJfaWQiOjQsInVzZXJfdXVpZCI6IjI4NTIwZGE0LThjOTItNGJiNC04MzVhLWM5ZDQzY2U1YTQ5NCIsImlhdCI6MjEwLCJzdWIiOiJKV1QgVG9rZW4iLCJzY29wZXMiOlsidjI6YWNjb3VudDphZGRyZXNzOnJlYWQiLCJ2MjphY2NvdW50OmFkZHJlc3M6Y3JlYXRlIiwidjI6YWNjb3VudDphZGRyZXNzOnVwZGF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczpkZWxldGUiLCJ2MjphY2NvdW50OmJhbmstYWNjb3VudDpyZWFkIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6dXBkYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpjbGllbnQ6cmVhZCIsInYyOmFjY291bnQ6Y2xpZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnVwZGF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6cmVhZCIsInYyOmFjY291bnQ6RG9jdW1lbnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpEb2N1bWVudDpkZWxldGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnJlYWQiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OmNyZWF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6dXBkYXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpkZWxldGUiLCJ2MjphY2NvdW50OnRheC1pbmZvcm1hdGlvbjpyZWFkIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246Y3JlYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246dXBkYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246ZGVsZXRlIiwidjI6Y2xpZW50OnJpc2s6YXNzZXNzbWVudDpyZWFkIiwidjI6Y2xpZW50Omt5Yzp2ZXJpZmljYXRpb246cmVhZCIsInYyOmNsaWVudDpiaWxsaW5nOmludm9pY2U6cmVhZCIsInYyOmFjY291bnQ6YWN0aXZpdHk6cmVhZCIsInYyOmFjY291bnQ6d2F0Y2hsaXN0OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpjcmVhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDp1cGRhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cmViYWxhbmNlOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6cmVhZCIsInYyOmJyb2tlcjpvcmRlcjpjcmVhdGUiLCJ2Mjpicm9rZXI6b3JkZXI6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOmFjdGl2aXRpZXM6cmVhZCIsInYyOnBvcnRmb2xpbzphbGxvY2F0aW9uczpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86ZGVwb3NpdHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzpwZXJmb3JtYW5jZTpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpjcmVhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOnVwZGF0ZSIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86ZGVsZXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86d2l0aGRyYXdhbHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmRlbGV0ZSJdfQ.qyAJyFgNU9u8T2-YyTsibYSd-FmJcbs79w2C09-Fe1w\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTH MFA method activation confirm",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/auth/mfa/{{mfa_method}}/activate/confirm/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"auth",
+								"mfa",
+								"{{mfa_method}}",
+								"activate",
+								"confirm",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=361.1939999999976;desc=\"User CPU time\", TimerPanel_stime;dur=60.725000000005025;desc=\"System CPU time\", TimerPanel_total;dur=421.9190000000026;desc=\"Total CPU time\", TimerPanel_total_time;dur=401.1189937591553;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.602100372314453;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"WRONG_USERNAME\",\n    \"message\": \"Identifiant ou mot de passe incorrect\"\n}"
+						},
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"Indiana1234\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, Origin, Accept-Language"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=320.5829999999992;desc=\"User CPU time\", TimerPanel_stime;dur=92.92700000000309;desc=\"System CPU time\", TimerPanel_total;dur=413.51000000000226;desc=\"Total CPU time\", TimerPanel_total_time;dur=365.4468059539795;desc=\"Elapsed time\", SQLPanel_sql_time;dur=7.857561111450195;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4504"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=U2JhcoYGlxkwXk7PHbt2xoQL5KJIJ3sgamSnbR3loxwL5buWCcdS254iqtyzBH4T; expires=Wed, 01 Jun 2022 06:54:56 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=hw1keq2onwh1o7o35wqnd4t2j53prldj; expires=Wed, 16 Jun 2021 06:54:56 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjcwMzI5NiwianRpIjoiOGYwYjg3Y2UxNTJhNDBiODg4YTAxMmYxYTgxMmU4YzIiLCJ1c2VyX2lkIjo0LCJ1c2VyX3V1aWQiOiIyODUyMGRhNC04YzkyLTRiYjQtODM1YS1jOWQ0M2NlNWE0OTQiLCJpYXQiOjIxMCwic3ViIjoiSldUIFRva2VuIiwic2NvcGVzIjpbInYyOmFjY291bnQ6YWRkcmVzczpyZWFkIiwidjI6YWNjb3VudDphZGRyZXNzOmNyZWF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczp1cGRhdGUiLCJ2MjphY2NvdW50OmFkZHJlc3M6ZGVsZXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6cmVhZCIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmNyZWF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OnVwZGF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmRlbGV0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnJlYWQiLCJ2MjphY2NvdW50OmNsaWVudDpjcmVhdGUiLCJ2MjphY2NvdW50OmNsaWVudDp1cGRhdGUiLCJ2MjphY2NvdW50OkRvY3VtZW50OnJlYWQiLCJ2MjphY2NvdW50OkRvY3VtZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpyZWFkIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpjcmVhdGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnVwZGF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6ZGVsZXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246cmVhZCIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmNyZWF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOnVwZGF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmRlbGV0ZSIsInYyOmNsaWVudDpyaXNrOmFzc2Vzc21lbnQ6cmVhZCIsInYyOmNsaWVudDpreWM6dmVyaWZpY2F0aW9uOnJlYWQiLCJ2MjpjbGllbnQ6YmlsbGluZzppbnZvaWNlOnJlYWQiLCJ2MjphY2NvdW50OmFjdGl2aXR5OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpyZWFkIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6Y3JlYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6dXBkYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOnJlYmFsYW5jZTpyZWFkIiwidjI6YnJva2VyOm9yZGVyOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6Y3JlYXRlIiwidjI6YnJva2VyOm9yZGVyOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzphY3Rpdml0aWVzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86YWxsb2NhdGlvbnM6cmVhZCIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cGVyZm9ybWFuY2U6cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86Y3JlYXRlIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzp1cGRhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpyZWFkIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpkZWxldGUiXX0.-fsIV53MkDNAnkoc0FlwwRiDBe1IIy0DCqVRQR3GeuE\",\n    \"access\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI1NjE2ODk2LCJqdGkiOiI1MmI4MzExNWQ0ZDU0YTJhYTRhNGE4NzhlYTk4YTFlZiIsInVzZXJfaWQiOjQsInVzZXJfdXVpZCI6IjI4NTIwZGE0LThjOTItNGJiNC04MzVhLWM5ZDQzY2U1YTQ5NCIsImlhdCI6MjEwLCJzdWIiOiJKV1QgVG9rZW4iLCJzY29wZXMiOlsidjI6YWNjb3VudDphZGRyZXNzOnJlYWQiLCJ2MjphY2NvdW50OmFkZHJlc3M6Y3JlYXRlIiwidjI6YWNjb3VudDphZGRyZXNzOnVwZGF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczpkZWxldGUiLCJ2MjphY2NvdW50OmJhbmstYWNjb3VudDpyZWFkIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6dXBkYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpjbGllbnQ6cmVhZCIsInYyOmFjY291bnQ6Y2xpZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnVwZGF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6cmVhZCIsInYyOmFjY291bnQ6RG9jdW1lbnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpEb2N1bWVudDpkZWxldGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnJlYWQiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OmNyZWF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6dXBkYXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpkZWxldGUiLCJ2MjphY2NvdW50OnRheC1pbmZvcm1hdGlvbjpyZWFkIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246Y3JlYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246dXBkYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246ZGVsZXRlIiwidjI6Y2xpZW50OnJpc2s6YXNzZXNzbWVudDpyZWFkIiwidjI6Y2xpZW50Omt5Yzp2ZXJpZmljYXRpb246cmVhZCIsInYyOmNsaWVudDpiaWxsaW5nOmludm9pY2U6cmVhZCIsInYyOmFjY291bnQ6YWN0aXZpdHk6cmVhZCIsInYyOmFjY291bnQ6d2F0Y2hsaXN0OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpjcmVhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDp1cGRhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cmViYWxhbmNlOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6cmVhZCIsInYyOmJyb2tlcjpvcmRlcjpjcmVhdGUiLCJ2Mjpicm9rZXI6b3JkZXI6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOmFjdGl2aXRpZXM6cmVhZCIsInYyOnBvcnRmb2xpbzphbGxvY2F0aW9uczpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86ZGVwb3NpdHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzpwZXJmb3JtYW5jZTpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpjcmVhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOnVwZGF0ZSIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86ZGVsZXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86d2l0aGRyYXdhbHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmRlbGV0ZSJdfQ.qyAJyFgNU9u8T2-YyTsibYSd-FmJcbs79w2C09-Fe1w\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTH MFA regenerate new backup codes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/auth/mfa/{{mfa_method}}/codes/regenerate/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"auth",
+								"mfa",
+								"{{mfa_method}}",
+								"codes",
+								"regenerate",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=361.1939999999976;desc=\"User CPU time\", TimerPanel_stime;dur=60.725000000005025;desc=\"System CPU time\", TimerPanel_total;dur=421.9190000000026;desc=\"Total CPU time\", TimerPanel_total_time;dur=401.1189937591553;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.602100372314453;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"WRONG_USERNAME\",\n    \"message\": \"Identifiant ou mot de passe incorrect\"\n}"
+						},
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"Indiana1234\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, Origin, Accept-Language"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=320.5829999999992;desc=\"User CPU time\", TimerPanel_stime;dur=92.92700000000309;desc=\"System CPU time\", TimerPanel_total;dur=413.51000000000226;desc=\"Total CPU time\", TimerPanel_total_time;dur=365.4468059539795;desc=\"Elapsed time\", SQLPanel_sql_time;dur=7.857561111450195;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4504"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=U2JhcoYGlxkwXk7PHbt2xoQL5KJIJ3sgamSnbR3loxwL5buWCcdS254iqtyzBH4T; expires=Wed, 01 Jun 2022 06:54:56 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=hw1keq2onwh1o7o35wqnd4t2j53prldj; expires=Wed, 16 Jun 2021 06:54:56 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjcwMzI5NiwianRpIjoiOGYwYjg3Y2UxNTJhNDBiODg4YTAxMmYxYTgxMmU4YzIiLCJ1c2VyX2lkIjo0LCJ1c2VyX3V1aWQiOiIyODUyMGRhNC04YzkyLTRiYjQtODM1YS1jOWQ0M2NlNWE0OTQiLCJpYXQiOjIxMCwic3ViIjoiSldUIFRva2VuIiwic2NvcGVzIjpbInYyOmFjY291bnQ6YWRkcmVzczpyZWFkIiwidjI6YWNjb3VudDphZGRyZXNzOmNyZWF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczp1cGRhdGUiLCJ2MjphY2NvdW50OmFkZHJlc3M6ZGVsZXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6cmVhZCIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmNyZWF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OnVwZGF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmRlbGV0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnJlYWQiLCJ2MjphY2NvdW50OmNsaWVudDpjcmVhdGUiLCJ2MjphY2NvdW50OmNsaWVudDp1cGRhdGUiLCJ2MjphY2NvdW50OkRvY3VtZW50OnJlYWQiLCJ2MjphY2NvdW50OkRvY3VtZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpyZWFkIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpjcmVhdGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnVwZGF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6ZGVsZXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246cmVhZCIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmNyZWF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOnVwZGF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmRlbGV0ZSIsInYyOmNsaWVudDpyaXNrOmFzc2Vzc21lbnQ6cmVhZCIsInYyOmNsaWVudDpreWM6dmVyaWZpY2F0aW9uOnJlYWQiLCJ2MjpjbGllbnQ6YmlsbGluZzppbnZvaWNlOnJlYWQiLCJ2MjphY2NvdW50OmFjdGl2aXR5OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpyZWFkIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6Y3JlYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6dXBkYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOnJlYmFsYW5jZTpyZWFkIiwidjI6YnJva2VyOm9yZGVyOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6Y3JlYXRlIiwidjI6YnJva2VyOm9yZGVyOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzphY3Rpdml0aWVzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86YWxsb2NhdGlvbnM6cmVhZCIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cGVyZm9ybWFuY2U6cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86Y3JlYXRlIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzp1cGRhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpyZWFkIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpkZWxldGUiXX0.-fsIV53MkDNAnkoc0FlwwRiDBe1IIy0DCqVRQR3GeuE\",\n    \"access\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI1NjE2ODk2LCJqdGkiOiI1MmI4MzExNWQ0ZDU0YTJhYTRhNGE4NzhlYTk4YTFlZiIsInVzZXJfaWQiOjQsInVzZXJfdXVpZCI6IjI4NTIwZGE0LThjOTItNGJiNC04MzVhLWM5ZDQzY2U1YTQ5NCIsImlhdCI6MjEwLCJzdWIiOiJKV1QgVG9rZW4iLCJzY29wZXMiOlsidjI6YWNjb3VudDphZGRyZXNzOnJlYWQiLCJ2MjphY2NvdW50OmFkZHJlc3M6Y3JlYXRlIiwidjI6YWNjb3VudDphZGRyZXNzOnVwZGF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczpkZWxldGUiLCJ2MjphY2NvdW50OmJhbmstYWNjb3VudDpyZWFkIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6dXBkYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpjbGllbnQ6cmVhZCIsInYyOmFjY291bnQ6Y2xpZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnVwZGF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6cmVhZCIsInYyOmFjY291bnQ6RG9jdW1lbnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpEb2N1bWVudDpkZWxldGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnJlYWQiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OmNyZWF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6dXBkYXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpkZWxldGUiLCJ2MjphY2NvdW50OnRheC1pbmZvcm1hdGlvbjpyZWFkIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246Y3JlYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246dXBkYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246ZGVsZXRlIiwidjI6Y2xpZW50OnJpc2s6YXNzZXNzbWVudDpyZWFkIiwidjI6Y2xpZW50Omt5Yzp2ZXJpZmljYXRpb246cmVhZCIsInYyOmNsaWVudDpiaWxsaW5nOmludm9pY2U6cmVhZCIsInYyOmFjY291bnQ6YWN0aXZpdHk6cmVhZCIsInYyOmFjY291bnQ6d2F0Y2hsaXN0OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpjcmVhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDp1cGRhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cmViYWxhbmNlOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6cmVhZCIsInYyOmJyb2tlcjpvcmRlcjpjcmVhdGUiLCJ2Mjpicm9rZXI6b3JkZXI6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOmFjdGl2aXRpZXM6cmVhZCIsInYyOnBvcnRmb2xpbzphbGxvY2F0aW9uczpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86ZGVwb3NpdHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzpwZXJmb3JtYW5jZTpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpjcmVhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOnVwZGF0ZSIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86ZGVsZXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86d2l0aGRyYXdhbHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmRlbGV0ZSJdfQ.qyAJyFgNU9u8T2-YyTsibYSd-FmJcbs79w2C09-Fe1w\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTH MFA deactivation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/auth/mfa/{{mfa_method}}/deactivate/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"auth",
+								"mfa",
+								"{{mfa_method}}",
+								"deactivate",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "wrong username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"{{password}}\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Origin, Accept-Language, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=361.1939999999976;desc=\"User CPU time\", TimerPanel_stime;dur=60.725000000005025;desc=\"System CPU time\", TimerPanel_total;dur=421.9190000000026;desc=\"Total CPU time\", TimerPanel_total_time;dur=401.1189937591553;desc=\"Elapsed time\", SQLPanel_sql_time;dur=2.602100372314453;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"WRONG_USERNAME\",\n    \"message\": \"Identifiant ou mot de passe incorrect\"\n}"
+						},
+						{
+							"name": "ok response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"{{username}}\",\n  \"password\": \"Indiana1234\"\n}"
+								},
+								"url": {
+									"raw": "{{host}}:{{port}}/api/v2/auth/login/",
+									"host": [
+										"{{host}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"v2",
+										"auth",
+										"login",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 02 Jun 2021 06:54:56 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.8.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie, Origin, Accept-Language"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "Server-Timing",
+									"value": "TimerPanel_utime;dur=320.5829999999992;desc=\"User CPU time\", TimerPanel_stime;dur=92.92700000000309;desc=\"System CPU time\", TimerPanel_total;dur=413.51000000000226;desc=\"Total CPU time\", TimerPanel_total_time;dur=365.4468059539795;desc=\"Elapsed time\", SQLPanel_sql_time;dur=7.857561111450195;desc=\"SQL 4 queries\", CachePanel_total_time;dur=0;desc=\"Cache 0 Calls\""
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4504"
+								},
+								{
+									"key": "Content-Language",
+									"value": "fr-ch"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "csrftoken=U2JhcoYGlxkwXk7PHbt2xoQL5KJIJ3sgamSnbR3loxwL5buWCcdS254iqtyzBH4T; expires=Wed, 01 Jun 2022 06:54:56 GMT; Max-Age=31449600; Path=/; SameSite=Lax"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "sessionid=hw1keq2onwh1o7o35wqnd4t2j53prldj; expires=Wed, 16 Jun 2021 06:54:56 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYyMjcwMzI5NiwianRpIjoiOGYwYjg3Y2UxNTJhNDBiODg4YTAxMmYxYTgxMmU4YzIiLCJ1c2VyX2lkIjo0LCJ1c2VyX3V1aWQiOiIyODUyMGRhNC04YzkyLTRiYjQtODM1YS1jOWQ0M2NlNWE0OTQiLCJpYXQiOjIxMCwic3ViIjoiSldUIFRva2VuIiwic2NvcGVzIjpbInYyOmFjY291bnQ6YWRkcmVzczpyZWFkIiwidjI6YWNjb3VudDphZGRyZXNzOmNyZWF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczp1cGRhdGUiLCJ2MjphY2NvdW50OmFkZHJlc3M6ZGVsZXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6cmVhZCIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmNyZWF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OnVwZGF0ZSIsInYyOmFjY291bnQ6YmFuay1hY2NvdW50OmRlbGV0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnJlYWQiLCJ2MjphY2NvdW50OmNsaWVudDpjcmVhdGUiLCJ2MjphY2NvdW50OmNsaWVudDp1cGRhdGUiLCJ2MjphY2NvdW50OkRvY3VtZW50OnJlYWQiLCJ2MjphY2NvdW50OkRvY3VtZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpyZWFkIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpjcmVhdGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnVwZGF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6ZGVsZXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246cmVhZCIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmNyZWF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOnVwZGF0ZSIsInYyOmFjY291bnQ6dGF4LWluZm9ybWF0aW9uOmRlbGV0ZSIsInYyOmNsaWVudDpyaXNrOmFzc2Vzc21lbnQ6cmVhZCIsInYyOmNsaWVudDpreWM6dmVyaWZpY2F0aW9uOnJlYWQiLCJ2MjpjbGllbnQ6YmlsbGluZzppbnZvaWNlOnJlYWQiLCJ2MjphY2NvdW50OmFjdGl2aXR5OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpyZWFkIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6Y3JlYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6dXBkYXRlIiwidjI6YWNjb3VudDp3YXRjaGxpc3Q6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOnJlYmFsYW5jZTpyZWFkIiwidjI6YnJva2VyOm9yZGVyOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6Y3JlYXRlIiwidjI6YnJva2VyOm9yZGVyOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzphY3Rpdml0aWVzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86YWxsb2NhdGlvbnM6cmVhZCIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzpkZXBvc2l0czpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cGVyZm9ybWFuY2U6cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86cmVhZCIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86Y3JlYXRlIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzp1cGRhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpyZWFkIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmNyZWF0ZSIsInYyOnBvcnRmb2xpbzp3aXRoZHJhd2FsczpkZWxldGUiXX0.-fsIV53MkDNAnkoc0FlwwRiDBe1IIy0DCqVRQR3GeuE\",\n    \"access\": \"Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjI1NjE2ODk2LCJqdGkiOiI1MmI4MzExNWQ0ZDU0YTJhYTRhNGE4NzhlYTk4YTFlZiIsInVzZXJfaWQiOjQsInVzZXJfdXVpZCI6IjI4NTIwZGE0LThjOTItNGJiNC04MzVhLWM5ZDQzY2U1YTQ5NCIsImlhdCI6MjEwLCJzdWIiOiJKV1QgVG9rZW4iLCJzY29wZXMiOlsidjI6YWNjb3VudDphZGRyZXNzOnJlYWQiLCJ2MjphY2NvdW50OmFkZHJlc3M6Y3JlYXRlIiwidjI6YWNjb3VudDphZGRyZXNzOnVwZGF0ZSIsInYyOmFjY291bnQ6YWRkcmVzczpkZWxldGUiLCJ2MjphY2NvdW50OmJhbmstYWNjb3VudDpyZWFkIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6dXBkYXRlIiwidjI6YWNjb3VudDpiYW5rLWFjY291bnQ6ZGVsZXRlIiwidjI6YWNjb3VudDpjbGllbnQ6cmVhZCIsInYyOmFjY291bnQ6Y2xpZW50OmNyZWF0ZSIsInYyOmFjY291bnQ6Y2xpZW50OnVwZGF0ZSIsInYyOmFjY291bnQ6RG9jdW1lbnQ6cmVhZCIsInYyOmFjY291bnQ6RG9jdW1lbnQ6Y3JlYXRlIiwidjI6YWNjb3VudDpEb2N1bWVudDpkZWxldGUiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OnJlYWQiLCJ2MjphY2NvdW50Om5hdGlvbmFsaXR5OmNyZWF0ZSIsInYyOmFjY291bnQ6bmF0aW9uYWxpdHk6dXBkYXRlIiwidjI6YWNjb3VudDpuYXRpb25hbGl0eTpkZWxldGUiLCJ2MjphY2NvdW50OnRheC1pbmZvcm1hdGlvbjpyZWFkIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246Y3JlYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246dXBkYXRlIiwidjI6YWNjb3VudDp0YXgtaW5mb3JtYXRpb246ZGVsZXRlIiwidjI6Y2xpZW50OnJpc2s6YXNzZXNzbWVudDpyZWFkIiwidjI6Y2xpZW50Omt5Yzp2ZXJpZmljYXRpb246cmVhZCIsInYyOmNsaWVudDpiaWxsaW5nOmludm9pY2U6cmVhZCIsInYyOmFjY291bnQ6YWN0aXZpdHk6cmVhZCIsInYyOmFjY291bnQ6d2F0Y2hsaXN0OnJlYWQiLCJ2MjphY2NvdW50OndhdGNobGlzdDpjcmVhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDp1cGRhdGUiLCJ2MjphY2NvdW50OndhdGNobGlzdDpkZWxldGUiLCJ2Mjpwb3J0Zm9saW86cmViYWxhbmNlOnJlYWQiLCJ2Mjpicm9rZXI6b3JkZXI6cmVhZCIsInYyOmJyb2tlcjpvcmRlcjpjcmVhdGUiLCJ2Mjpicm9rZXI6b3JkZXI6ZGVsZXRlIiwidjI6cG9ydGZvbGlvOmFjdGl2aXRpZXM6cmVhZCIsInYyOnBvcnRmb2xpbzphbGxvY2F0aW9uczpyZWFkIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86ZGVwb3NpdHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOmRlcG9zaXRzOmRlbGV0ZSIsInYyOnBvcnRmb2xpbzpwZXJmb3JtYW5jZTpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpyZWFkIiwidjI6cG9ydGZvbGlvOnBvcnRmb2xpbzpjcmVhdGUiLCJ2Mjpwb3J0Zm9saW86cG9ydGZvbGlvOnVwZGF0ZSIsInYyOnBvcnRmb2xpbzpwb3J0Zm9saW86ZGVsZXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOnJlYWQiLCJ2Mjpwb3J0Zm9saW86d2l0aGRyYXdhbHM6Y3JlYXRlIiwidjI6cG9ydGZvbGlvOndpdGhkcmF3YWxzOmRlbGV0ZSJdfQ.qyAJyFgNU9u8T2-YyTsibYSd-FmJcbs79w2C09-Fe1w\"\n}"
+						}
+					]
+				},
+				{
+					"name": "AUTH MFA User methods",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{auth_token}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}:{{port}}/api/v2/auth/mfa/active-methods/",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"v2",
+								"auth",
+								"mfa",
+								"active-methods",
 								""
 							]
 						}
